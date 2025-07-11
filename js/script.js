@@ -14,6 +14,10 @@ window.addEventListener('DOMContentLoaded', function(event) {
                 hideLeftMenu(true);
         }
 
+        if (getParameterByName('transparent') !== null) {
+                transparentBg(true);
+        }
+
         function getParameterByName(name, url) {
                 if (!url) url = window.location.href;
                 name = name.replace(/[\[\]]/g, "\\$&");
@@ -61,6 +65,14 @@ window.addEventListener('DOMContentLoaded', function(event) {
                         {el: '#content', style: 'height', value: '100%'},
                         {el: '#content-vue', style: 'height', value: '100%'},
                         {el: '#app-navigation-vue', style: 'height', value: '100%'},
+                ];
+                applyStyleChanges(changeStyles);
+        }
+
+        function transparentBg() {
+                var changeStyles = [
+                        {el: 'body', style: 'background-color', value: 'none'},
+                        {el: 'body', style: 'background-image', value: 'none'},
                 ];
                 applyStyleChanges(changeStyles);
         }
